@@ -1,0 +1,2 @@
+dl/linux/linux-6.12.9.tar.xz filter=lfs diff=lfs merge=lfs -text
+dl/qemu/qemu-9.2.0.tar.xz filter=lfs diff=lfs merge=lfs -text
