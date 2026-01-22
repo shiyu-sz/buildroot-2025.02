@@ -1,0 +1,6 @@
+menuconfig BR2_PACKAGE_EXAMPLE_QT
+	bool "example_qt"
+	default n
+	select BR2_PACKAGE_QT5
+	help
+	  QT App.

@@ -2931,4 +2931,8 @@ menu "Text editors and viewers"
 	source "package/vim/Config.in"
 endmenu
 
+menu "Example"
+	source "package/example_qt/Config.in"
+endmenu
+
 endmenu

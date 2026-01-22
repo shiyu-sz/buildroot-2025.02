@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -gbd5a7160 Configuration
+# Buildroot -g49672139-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -1028,6 +1028,10 @@ BR2_PACKAGE_PROVIDES_HOST_GETTEXT="host-gettext-tiny"
 BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 # BR2_PACKAGE_NETSURF is not set
 # BR2_PACKAGE_PNGQUANT is not set
+
+#
+# qt5cinex needs an Open(E)GL-capable backend
+#
 # BR2_PACKAGE_RRDTOOL is not set
 # BR2_PACKAGE_SPIRV_TOOLS is not set
 
@@ -1073,9 +1077,119 @@ BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 # Other GUIs
 #
 BR2_PACKAGE_QT5_JSCORE_AVAILABLE=y
-# BR2_PACKAGE_QT5 is not set
+BR2_PACKAGE_QT5=y
+
+#
+# qt53d module needs an OpenGL-capable backend
+#
+BR2_PACKAGE_QT5BASE=y
+BR2_PACKAGE_QT5BASE_CUSTOM_CONF_OPTS=""
+BR2_PACKAGE_QT5BASE_CONFIG_FILE=""
+# BR2_PACKAGE_QT5BASE_EXAMPLES is not set
+BR2_PACKAGE_QT5BASE_NETWORK=y
+# BR2_PACKAGE_QT5BASE_CONCURRENT is not set
+BR2_PACKAGE_QT5BASE_SQL=y
+# BR2_PACKAGE_QT5BASE_MYSQL is not set
+# BR2_PACKAGE_QT5BASE_PSQL is not set
+BR2_PACKAGE_QT5BASE_SQLITE_NONE=y
+# BR2_PACKAGE_QT5BASE_SQLITE_QT is not set
+# BR2_PACKAGE_QT5BASE_SQLITE_SYSTEM is not set
+BR2_PACKAGE_QT5BASE_TEST=y
+BR2_PACKAGE_QT5BASE_XML=y
+BR2_PACKAGE_QT5BASE_GUI=y
+BR2_PACKAGE_QT5BASE_WIDGETS=y
+
+#
+# OpenGL support needs an OpenGL-capable backend
+#
+# BR2_PACKAGE_QT5BASE_VULKAN is not set
+BR2_PACKAGE_QT5BASE_LINUXFB=y
+
+#
+# X.org XCB backend available if X.org is enabled
+#
+
+#
+# eglfs backend available if OpenGL and EGL are enabled
+#
+BR2_PACKAGE_QT5BASE_DEFAULT_QPA=""
+BR2_PACKAGE_QT5BASE_PRINTSUPPORT=y
+# BR2_PACKAGE_QT5BASE_FONTCONFIG is not set
+# BR2_PACKAGE_QT5BASE_HARFBUZZ is not set
+# BR2_PACKAGE_QT5BASE_GIF is not set
+# BR2_PACKAGE_QT5BASE_JPEG is not set
+# BR2_PACKAGE_QT5BASE_PNG is not set
+# BR2_PACKAGE_QT5BASE_SYSLOG is not set
+# BR2_PACKAGE_QT5BASE_DBUS is not set
+# BR2_PACKAGE_QT5BASE_ICU is not set
+# BR2_PACKAGE_QT5BASE_TSLIB is not set
+# BR2_PACKAGE_QT5CHARTS is not set
+# BR2_PACKAGE_QT5COAP is not set
+
+#
+# qt5connectivity needs neard and/or bluez5_utils
+#
+# BR2_PACKAGE_QT5DECLARATIVE is not set
+# BR2_PACKAGE_QT5DOC is not set
+# BR2_PACKAGE_QT5ENGINIO is not set
+
+#
+# qt5graphicaleffects needs an OpenGL-capable backend
+#
+# BR2_PACKAGE_QT5IMAGEFORMATS is not set
+# BR2_PACKAGE_QT5KNX is not set
+# BR2_PACKAGE_QT5LOCATION is not set
+# BR2_PACKAGE_QT5LOTTIE is not set
+# BR2_PACKAGE_QT5MQTT is not set
+# BR2_PACKAGE_QT5MULTIMEDIA is not set
+# BR2_PACKAGE_QT5OPCUA is not set
+# BR2_PACKAGE_QT5QUICKCONTROLS is not set
+# BR2_PACKAGE_QT5QUICKCONTROLS2 is not set
+# BR2_PACKAGE_QT5QUICKTIMELINE is not set
+# BR2_PACKAGE_QT5REMOTEOBJECTS is not set
+# BR2_PACKAGE_QT5SCRIPT is not set
+# BR2_PACKAGE_QT5SCXML is not set
+# BR2_PACKAGE_QT5SENSORS is not set
+# BR2_PACKAGE_QT5SERIALBUS is not set
+# BR2_PACKAGE_QT5SERIALPORT is not set
+# BR2_PACKAGE_QT5SPEECH is not set
+# BR2_PACKAGE_QT5SVG is not set
+# BR2_PACKAGE_QT5TOOLS is not set
+# BR2_PACKAGE_QT5VIRTUALKEYBOARD is not set
+
+#
+# qt5wayland needs an OpenGL-capable backend
+#
+# BR2_PACKAGE_QT5WEBCHANNEL is not set
+# BR2_PACKAGE_QT5WEBKIT is not set
+BR2_PACKAGE_QT5WEBENGINE_ARCH_SUPPORTS=y
+
+#
+# qt5webengine needs udev /dev management and a glibc toolchain w/ host gcc >= 4.9, threads, wchar
+#
+
+#
+# qt5webengine needs an OpenGL and EGL-capable backend
+#
+# BR2_PACKAGE_QT5WEBSOCKETS is not set
+
+#
+# qt5webview needs qt5webengine module
+#
+# BR2_PACKAGE_QT5XMLPATTERNS is not set
 BR2_PACKAGE_QT6_ARCH_SUPPORTS=y
-# BR2_PACKAGE_QT6 is not set
+
+#
+# QT libraries and helper libraries
+#
+# BR2_PACKAGE_CUTELYST is not set
+# BR2_PACKAGE_GRANTLEE is not set
+# BR2_PACKAGE_KF5 is not set
+# BR2_PACKAGE_QEXTSERIALPORT is not set
+# BR2_PACKAGE_QJSON is not set
+# BR2_PACKAGE_QUAZIP is not set
+# BR2_PACKAGE_QWT is not set
+# BR2_PACKAGE_SIMPLE_MAIL is not set
 
 #
 # tekui needs a Lua interpreter and a toolchain w/ threads, dynamic library
@@ -1087,6 +1201,7 @@ BR2_PACKAGE_QT6_ARCH_SUPPORTS=y
 # BR2_PACKAGE_XORG7 is not set
 # BR2_PACKAGE_APITRACE is not set
 # BR2_PACKAGE_MUPDF is not set
+# BR2_PACKAGE_QT_WEBKIT_KIOSK is not set
 
 #
 # vte needs an OpenGL or an OpenGL-EGL backend
@@ -1244,6 +1359,7 @@ BR2_PACKAGE_FLASHROM_ARCH_SUPPORTS=y
 # BR2_PACKAGE_PIGPIO is not set
 # BR2_PACKAGE_POWERTOP is not set
 # BR2_PACKAGE_PPS_TOOLS is not set
+# BR2_PACKAGE_PULSEVIEW is not set
 # BR2_PACKAGE_QORIQ_CADENCE_DP_FIRMWARE is not set
 # BR2_PACKAGE_RASPI_GPIO is not set
 # BR2_PACKAGE_RDMA_CORE is not set
@@ -1451,7 +1567,11 @@ BR2_PACKAGE_WEBRTC_AUDIO_PROCESSING_ARCH_SUPPORTS=y
 # BR2_PACKAGE_SZIP is not set
 # BR2_PACKAGE_ZCHUNK is not set
 BR2_PACKAGE_ZLIB_NG_ARCH_SUPPORTS=y
-# BR2_PACKAGE_ZLIB is not set
+BR2_PACKAGE_ZLIB=y
+BR2_PACKAGE_LIBZLIB=y
+# BR2_PACKAGE_ZLIB_NG is not set
+BR2_PACKAGE_HAS_ZLIB=y
+BR2_PACKAGE_PROVIDES_ZLIB="libzlib"
 BR2_PACKAGE_PROVIDES_HOST_ZLIB="host-libzlib"
 # BR2_PACKAGE_ZZIPLIB is not set
 
@@ -1568,6 +1688,7 @@ BR2_PACKAGE_BAYER2RGB_NEON_ARCH_SUPPORTS=y
 #
 # chipmunk needs an OpenGL backend
 #
+# BR2_PACKAGE_CUTEKEYBOARD is not set
 # BR2_PACKAGE_EXEMPI is not set
 # BR2_PACKAGE_EXIV2 is not set
 BR2_PACKAGE_FLUTTER_ENGINE_ARCH_SUPPORTS=y
@@ -1576,7 +1697,7 @@ BR2_PACKAGE_FLUTTER_ENGINE_ARCH_SUPPORTS=y
 # flutter-engine needs an OpenGL or OpenGLES backend
 #
 # BR2_PACKAGE_FONTCONFIG is not set
-# BR2_PACKAGE_FREETYPE is not set
+BR2_PACKAGE_FREETYPE=y
 # BR2_PACKAGE_GD is not set
 # BR2_PACKAGE_GDK_PIXBUF is not set
 # BR2_PACKAGE_GIFLIB is not set
@@ -1852,10 +1973,7 @@ BR2_PACKAGE_OPENCSD_ARCH_SUPPORTS=y
 # BR2_PACKAGE_LOG4CPLUS is not set
 # BR2_PACKAGE_LOG4CPP is not set
 # BR2_PACKAGE_LOG4CXX is not set
-
-#
-# log4qt needs qt5
-#
+# BR2_PACKAGE_LOG4QT is not set
 # BR2_PACKAGE_OPENTRACING_CPP is not set
 # BR2_PACKAGE_SPDLOG is not set
 # BR2_PACKAGE_ULOG is not set
@@ -2280,7 +2398,11 @@ BR2_PACKAGE_TENSORFLOW_LITE_ARCH_SUPPORTS=y
 # BR2_PACKAGE_NEWT is not set
 # BR2_PACKAGE_ONIGURUMA is not set
 # BR2_PACKAGE_PCRE is not set
-# BR2_PACKAGE_PCRE2 is not set
+BR2_PACKAGE_PCRE2=y
+BR2_PACKAGE_PCRE2_16=y
+# BR2_PACKAGE_PCRE2_32 is not set
+BR2_PACKAGE_PCRE2_JIT_ARCH_SUPPORTS=y
+# BR2_PACKAGE_PCRE2_JIT is not set
 # BR2_PACKAGE_POPT is not set
 # BR2_PACKAGE_RE2 is not set
 # BR2_PACKAGE_READLINE is not set
@@ -2320,10 +2442,7 @@ BR2_PACKAGE_BITCOIN_ARCH_SUPPORTS=y
 # BR2_PACKAGE_GITLAB_RUNNER is not set
 # BR2_PACKAGE_GNURADIO is not set
 # BR2_PACKAGE_GOOGLEFONTDIRECTORY is not set
-
-#
-# gqrx needs qt5
-#
+# BR2_PACKAGE_GQRX is not set
 # BR2_PACKAGE_GSETTINGS_DESKTOP_SCHEMAS is not set
 # BR2_PACKAGE_HAVEGED is not set
 # BR2_PACKAGE_LINUX_SYSCALL_SUPPORT is not set
@@ -2897,6 +3016,11 @@ BR2_PACKAGE_XVISOR_ARCH_SUPPORTS=y
 # BR2_PACKAGE_MOST is not set
 # BR2_PACKAGE_NANO is not set
 # BR2_PACKAGE_UEMACS is not set
+
+#
+# Example
+#
+BR2_PACKAGE_EXAMPLE_QT=y
 
 #
 # Filesystem images
