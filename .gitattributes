@@ -1,2 +1,4 @@
 dl/linux/linux-6.12.9.tar.xz filter=lfs diff=lfs merge=lfs -text
 dl/qemu/qemu-9.2.0.tar.xz filter=lfs diff=lfs merge=lfs -text
+dl/rpi-firmware/rpi-firmware-5476720d52cf579dc1627715262b30ba1242525e.tar.gz filter=lfs diff=lfs merge=lfs -text
+dl/linux/linux-576cc10e1ed50a9eacffc7a05c796051d7343ea4.tar.gz filter=lfs diff=lfs merge=lfs -text
