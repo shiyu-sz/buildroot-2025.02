@@ -12,3 +12,5 @@ kernel=Image
 # Disable overscan assuming the display supports displaying the full resolution
 # If the text shown on the screen disappears off the edge, comment this out
 disable_overscan=1
+
+enable_uart=1
