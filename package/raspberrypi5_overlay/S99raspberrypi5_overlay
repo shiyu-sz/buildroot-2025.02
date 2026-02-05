@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# Start the raspberrypi5_overlay....
+#
+
+case "$1" in
+  start)
+	printf "Starting raspberrypi5_overlay: "
+	
+	modprobe brcmutil
+	modprobe brcmfmac
+	modprobe hci_uart
+	sleep 1
+	rfkill unblock all
+	sleep 1
+	wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  stop)
+	printf "Stopping raspberrypi5_overlay: "
+	
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+	;;
+  restart|reload)
+	"$0" stop
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?
+

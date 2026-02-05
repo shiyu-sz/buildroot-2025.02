@@ -1,0 +1,22 @@
+# 构建时选择glibc，守护进程选systemd
+#
+# 将example_c.service安装到/usr/lib/systemd/user
+# 或/usr/lib/systemd/system下，然后运行：
+
+# systemctl enable example_c.service
+
+# 会在/etc/systemd/user或/etc/systemd/system下生成链接，
+# 程序就可以自动启动，挂掉后自动拉起
+
+[Unit]
+Description=example_c Server
+
+[Service]
+Type=simple
+LimitNOFILE=65535
+ExecStart=/usr/bin/example_c
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target graphical.target

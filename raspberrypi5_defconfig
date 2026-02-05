@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g02e35db0-dirty Configuration
+# Buildroot -gf7d7adb1-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -3284,6 +3284,8 @@ BR2_PACKAGE_XVISOR_ARCH_SUPPORTS=y
 # Example
 #
 # BR2_PACKAGE_EXAMPLE_QT is not set
+BR2_PACKAGE_EXAMPLE_C=y
+BR2_PACKAGE_RASPBERRYPI5_OVERLAY=y
 
 #
 # Filesystem images

@@ -1,0 +1,4 @@
+config BR2_PACKAGE_RASPBERRYPI5_OVERLAY
+bool "raspberrypi5_overlay"
+help
+  raspberrypi5_overlay.

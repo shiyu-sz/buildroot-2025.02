@@ -1,0 +1,4 @@
+config BR2_PACKAGE_EXAMPLE_C
+bool "example_c"
+help
+  c example.
