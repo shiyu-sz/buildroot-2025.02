@@ -5,7 +5,7 @@
 ################################################################################
  
 EXAMPLE_C_VERSION:= 1.0.0
-EXAMPLE_C_SITE:= $(TOPDIR)/package/example_c
+EXAMPLE_C_SITE:= $(TOPDIR)/package/1-example/example_c
 EXAMPLE_C_SITE_METHOD:=local
 EXAMPLE_C_INSTALL_TARGET:=YES
  

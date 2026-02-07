@@ -5,7 +5,7 @@
 ################################################################################
  
 RASPBERRYPI5_OVERLAY_VERSION:= 1.0.0
-RASPBERRYPI5_OVERLAY_SITE:= $(TOPDIR)/package/raspberrypi5_overlay
+RASPBERRYPI5_OVERLAY_SITE:= $(TOPDIR)/package/1-example/raspberrypi5_overlay
 RASPBERRYPI5_OVERLAY_SITE_METHOD:=local
 RASPBERRYPI5_OVERLAY_INSTALL_TARGET:=YES
  

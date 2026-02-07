@@ -5,7 +5,7 @@
 ################################################################################
 
 EXAMPLE_QT_VERSION = 1.0.0
-EXAMPLE_QT_SITE = ./package/example_qt
+EXAMPLE_QT_SITE = ./package/1-example/example_qt
 EXAMPLE_QT_SITE_METHOD = local
 EXAMPLE_QT_DEPENDENCIES = qt5base
 

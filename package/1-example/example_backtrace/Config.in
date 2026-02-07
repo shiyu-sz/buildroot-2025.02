@@ -1,0 +1,4 @@
+config BR2_PACKAGE_EXAMPLE_BACKTRACE
+bool "example_backtrace"
+help
+  example_backtrace.

@@ -1,0 +1,8 @@
+menu "1-example"
+
+source "package/1-example/example_backtrace/Config.in"
+source "package/1-example/example_c/Config.in"
+source "package/1-example/example_qt/Config.in"
+source "package/1-example/raspberrypi5_overlay/Config.in"
+
+endmenu

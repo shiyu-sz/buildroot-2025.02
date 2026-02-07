@@ -1,5 +1,6 @@
 menu "Target packages"
 
+	source "package/1-example/Config.in"
 	source "package/busybox/Config.in"
 	source "package/skeleton/Config.in"
 	source "package/skeleton-custom/Config.in"
@@ -2929,12 +2930,6 @@ menu "Text editors and viewers"
 	source "package/nano/Config.in"
 	source "package/uemacs/Config.in"
 	source "package/vim/Config.in"
-endmenu
-
-menu "Example"
-	source "package/example_qt/Config.in"
-	source "package/example_c/Config.in"
-	source "package/raspberrypi5_overlay/Config.in"
 endmenu
 
 endmenu
