@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g272b7bc4-dirty Configuration
+# Buildroot -gfee0280c-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -1215,6 +1215,7 @@ BR2_PACKAGE_QT6_ARCH_SUPPORTS=y
 #
 # vte needs an OpenGL or an OpenGL-EGL backend
 #
+BR2_PACKAGE_YDOTOOL=y
 # BR2_PACKAGE_XKEYBOARD_CONFIG is not set
 
 #
@@ -1714,6 +1715,7 @@ BR2_PACKAGE_FREETYPE=y
 # BR2_PACKAGE_GD is not set
 # BR2_PACKAGE_GDK_PIXBUF is not set
 # BR2_PACKAGE_GIFLIB is not set
+# BR2_PACKAGE_RLOTTIE is not set
 
 #
 # granite needs libgtk3 and a toolchain w/ wchar, threads, gcc >= 4.9
@@ -3114,7 +3116,7 @@ BR2_PACKAGE_HOST_ARM_GNU_TOOLCHAIN_SUPPORTS=y
 # BR2_PACKAGE_HOST_BTRFS_PROGS is not set
 # BR2_PACKAGE_HOST_CHECKPOLICY is not set
 # BR2_PACKAGE_HOST_CHECKSEC is not set
-# BR2_PACKAGE_HOST_CMAKE is not set
+BR2_PACKAGE_HOST_CMAKE=y
 BR2_HOST_CMAKE_AT_LEAST="3.18"
 # BR2_PACKAGE_HOST_COMPOSER is not set
 # BR2_PACKAGE_HOST_CRAMFS is not set
