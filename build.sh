@@ -14,22 +14,31 @@ build_clean() {
 }
 
 build_aarch64() {
-    cp qemu_aarch64_virt_defconfig .config
+    make my_qemu_aarch64_virt_defconfig
     make -j8 
 }
 
 build_x86_64() {
-    cp qemu_x86_64_defconfig .config
+    make my_qemu_x86_64_defconfig
     make -j8 
 }
 
 run_aarch64() {
     # qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 -device virtio-blk-device,drive=hd0
-    qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 -device virtio-blk-device,drive=hd0 -device virtio-gpu-device -device virtio-mouse-pci -device virtio-keyboard-pci -display sdl
+    qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 \
+        -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" \
+        -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 \
+        -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 \
+        -device virtio-blk-device,drive=hd0 -device virtio-gpu-device \
+        -device virtio-mouse-pci -device virtio-keyboard-pci -display sdl
 }
 
 run_x86_64() {
-    qemu-system-x86_64 -M pc -kernel output/images/bzImage -drive file=output/images/rootfs.ext2,if=virtio,format=raw -append "rootwait root=/dev/vda console=tty1 console=ttyS0" -serial stdio -net nic,model=virtio -net user -display sdl
+    qemu-system-x86_64 -M pc -kernel output/images/bzImage \
+        -drive file=output/images/rootfs.ext2,if=virtio,format=raw \
+        -append "rootwait root=/dev/vda console=tty1 console=ttyS0" \
+        -serial stdio -net nic,model=virtio -net user -vga virtio \
+        -display gtk,gl=on -m 1024
 }
 
 build_package() {
