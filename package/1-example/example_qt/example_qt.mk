@@ -20,6 +20,10 @@ endef
 define EXAMPLE_QT_INSTALL_TARGET_CMDS
     $(INSTALL) -D -m 0755 $(@D)/example_qt \
         $(TARGET_DIR)/usr/bin/example_qt
+    $(INSTALL) -D -m 0755 $(@D)/S99example_qt \
+        $(TARGET_DIR)/etc/init.d/S99example_qt
+    mkdir -p $(TARGET_DIR)/usr/lib/fonts
+    cp $(@D)/simhei.ttf $(TARGET_DIR)/usr/lib/fonts/simhei.ttf
 endef
 
 $(eval $(generic-package))

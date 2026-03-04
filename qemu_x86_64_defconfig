@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g4c9d93fc Configuration
+# Buildroot -g5c593ee8-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -652,14 +652,8 @@ BR2_PACKAGE_KODI_ARCH_SUPPORTS=y
 #
 # kodi needs python3 w/ .py modules, a uClibc or glibc toolchain w/ C++, threads, wchar, dynamic library, gcc >= 9.x, host gcc >= 9.x
 #
-
-#
-# kodi needs udev support for gbm
-#
-
-#
-# kodi needs an OpenGL EGL backend with OpenGL or GLES support
-#
+BR2_PACKAGE_KODI_PLATFORM_SUPPORTS=y
+BR2_PACKAGE_KODI_PLATFORM_SUPPORTS_WAYLAND=y
 # BR2_PACKAGE_LAME is not set
 # BR2_PACKAGE_MADPLAY is not set
 # BR2_PACKAGE_MINIMODEM is not set
@@ -991,45 +985,29 @@ BR2_PACKAGE_PROVIDES_HOST_GETTEXT="host-gettext-tiny"
 #
 
 #
-# flutter-pi needs an OpenGL or OpenGLES backend
-#
-
-#
 # flutter-pi needs GBM, systemd, and udev
 #
 # BR2_PACKAGE_FOOT is not set
 # BR2_PACKAGE_FSWEBCAM is not set
 # BR2_PACKAGE_GHOSTSCRIPT is not set
-
-#
-# glmark2 needs an OpenGL or an openGL ES and EGL backend
-#
-
-#
-# glslsandbox-player needs openGL ES and EGL driver
-#
+BR2_PACKAGE_GLMARK2_FLAVOR_ANY=y
+BR2_PACKAGE_GLMARK2_FLAVOR_WAYLAND_GLESV2=y
+# BR2_PACKAGE_GLMARK2 is not set
+# BR2_PACKAGE_GLSLSANDBOX_PLAYER is not set
 # BR2_PACKAGE_GNUPLOT is not set
 
 #
 # igt-gpu-tools needs udev /dev management and toolchain w/ NPTL, wchar, dynamic library, locale, headers >= 4.11
 #
-
-#
-# ivi-homescreen needs an OpenGL or OpenGLES backend
-#
+# BR2_PACKAGE_IVI_HOMESCREEN is not set
 # BR2_PACKAGE_JHEAD is not set
-
-#
-# kmscube needs EGL, GBM and OpenGL ES, and a toolchain w/ thread support
-#
+# BR2_PACKAGE_KMSCUBE is not set
 # BR2_PACKAGE_LIBVA_UTILS is not set
+# BR2_PACKAGE_MESA3D_DEMOS is not set
 BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 # BR2_PACKAGE_NETSURF is not set
 # BR2_PACKAGE_PNGQUANT is not set
-
-#
-# qt5cinex needs an Open(E)GL-capable backend
-#
+# BR2_PACKAGE_QT5CINEX is not set
 # BR2_PACKAGE_RRDTOOL is not set
 # BR2_PACKAGE_SPIRV_TOOLS is not set
 
@@ -1057,8 +1035,13 @@ BR2_PACKAGE_NETSURF_ARCH_SUPPORTS=y
 # BR2_PACKAGE_GRAPHICSMAGICK is not set
 # BR2_PACKAGE_IMAGEMAGICK is not set
 # BR2_PACKAGE_LIBGLVND is not set
+BR2_PACKAGE_PROVIDES_LIBEGL="mesa3d"
+BR2_PACKAGE_PROVIDES_LIBGLES="mesa3d"
 BR2_PACKAGE_MESA3D=y
 # BR2_PACKAGE_MESA3D_LLVM is not set
+BR2_PACKAGE_MESA3D_GALLIUM_DRIVER=y
+BR2_PACKAGE_MESA3D_VULKAN_DRIVER=y
+BR2_PACKAGE_MESA3D_DRIVER=y
 
 #
 # Gallium drivers
@@ -1073,9 +1056,9 @@ BR2_PACKAGE_MESA3D=y
 # BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_R300 is not set
 # BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_R600 is not set
 # BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_SVGA is not set
-# BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_SWRAST is not set
+BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_SWRAST=y
 # BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_TEGRA is not set
-# BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VIRGL is not set
+BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_VIRGL=y
 # BR2_PACKAGE_MESA3D_GALLIUM_DRIVER_ZINK is not set
 
 #
@@ -1086,12 +1069,24 @@ BR2_PACKAGE_MESA3D=y
 # Vulkan drivers
 #
 # BR2_PACKAGE_MESA3D_VULKAN_DRIVER_INTEL is not set
-# BR2_PACKAGE_MESA3D_VULKAN_DRIVER_VIRTIO is not set
+BR2_PACKAGE_MESA3D_VULKAN_DRIVER_VIRTIO=y
 
 #
 # Off-screen Rendering
 #
 # BR2_PACKAGE_MESA3D_OSMESA_GALLIUM is not set
+
+#
+# OpenGL API Support
+#
+BR2_PACKAGE_MESA3D_GBM=y
+
+#
+# OpenGL GLX support needs X11
+#
+BR2_PACKAGE_MESA3D_OPENGL_EGL=y
+BR2_PACKAGE_MESA3D_OPENGL_ES=y
+BR2_PACKAGE_PROVIDES_LIBGBM="mesa3d"
 # BR2_PACKAGE_OCRAD is not set
 
 #
@@ -1108,12 +1103,10 @@ BR2_PACKAGE_MESA3D=y
 #
 # Other GUIs
 #
+BR2_PACKAGE_QT5_GL_AVAILABLE=y
 BR2_PACKAGE_QT5_JSCORE_AVAILABLE=y
 BR2_PACKAGE_QT5=y
-
-#
-# qt53d module needs an OpenGL-capable backend
-#
+# BR2_PACKAGE_QT53D is not set
 BR2_PACKAGE_QT5BASE=y
 BR2_PACKAGE_QT5BASE_CUSTOM_CONF_OPTS=""
 BR2_PACKAGE_QT5BASE_CONFIG_FILE=""
@@ -1130,20 +1123,16 @@ BR2_PACKAGE_QT5BASE_TEST=y
 BR2_PACKAGE_QT5BASE_XML=y
 BR2_PACKAGE_QT5BASE_GUI=y
 BR2_PACKAGE_QT5BASE_WIDGETS=y
-
-#
-# OpenGL support needs an OpenGL-capable backend
-#
+BR2_PACKAGE_QT5BASE_OPENGL=y
+BR2_PACKAGE_QT5BASE_OPENGL_ES2=y
+# BR2_PACKAGE_QT5BASE_OPENGL_LIB is not set
 # BR2_PACKAGE_QT5BASE_VULKAN is not set
 BR2_PACKAGE_QT5BASE_LINUXFB=y
 
 #
 # X.org XCB backend available if X.org is enabled
 #
-
-#
-# eglfs backend available if OpenGL and EGL are enabled
-#
+BR2_PACKAGE_QT5BASE_EGLFS=y
 BR2_PACKAGE_QT5BASE_DEFAULT_QPA=""
 BR2_PACKAGE_QT5BASE_PRINTSUPPORT=y
 # BR2_PACKAGE_QT5BASE_FONTCONFIG is not set
@@ -1164,10 +1153,7 @@ BR2_PACKAGE_QT5BASE_PRINTSUPPORT=y
 # BR2_PACKAGE_QT5DECLARATIVE is not set
 # BR2_PACKAGE_QT5DOC is not set
 # BR2_PACKAGE_QT5ENGINIO is not set
-
-#
-# qt5graphicaleffects needs an OpenGL-capable backend
-#
+# BR2_PACKAGE_QT5GRAPHICALEFFECTS is not set
 # BR2_PACKAGE_QT5IMAGEFORMATS is not set
 # BR2_PACKAGE_QT5KNX is not set
 # BR2_PACKAGE_QT5LOCATION is not set
@@ -1188,20 +1174,13 @@ BR2_PACKAGE_QT5BASE_PRINTSUPPORT=y
 # BR2_PACKAGE_QT5SVG is not set
 # BR2_PACKAGE_QT5TOOLS is not set
 # BR2_PACKAGE_QT5VIRTUALKEYBOARD is not set
-
-#
-# qt5wayland needs an OpenGL-capable backend
-#
+# BR2_PACKAGE_QT5WAYLAND is not set
 # BR2_PACKAGE_QT5WEBCHANNEL is not set
 # BR2_PACKAGE_QT5WEBKIT is not set
 BR2_PACKAGE_QT5WEBENGINE_ARCH_SUPPORTS=y
 
 #
 # qt5webengine needs udev /dev management and a glibc toolchain w/ host gcc >= 4.9, threads, wchar
-#
-
-#
-# qt5webengine needs an OpenGL and EGL-capable backend
 #
 # BR2_PACKAGE_QT5WEBSOCKETS is not set
 
@@ -1210,6 +1189,7 @@ BR2_PACKAGE_QT5WEBENGINE_ARCH_SUPPORTS=y
 #
 # BR2_PACKAGE_QT5XMLPATTERNS is not set
 BR2_PACKAGE_QT6_ARCH_SUPPORTS=y
+BR2_PACKAGE_QT6_GL_SUPPORTS=y
 
 #
 # QT libraries and helper libraries
@@ -1234,10 +1214,6 @@ BR2_PACKAGE_QT6_ARCH_SUPPORTS=y
 # BR2_PACKAGE_APITRACE is not set
 # BR2_PACKAGE_MUPDF is not set
 # BR2_PACKAGE_QT_WEBKIT_KIOSK is not set
-
-#
-# vte needs an OpenGL or an OpenGL-EGL backend
-#
 # BR2_PACKAGE_YDOTOOL is not set
 # BR2_PACKAGE_XKEYBOARD_CONFIG is not set
 
@@ -1721,10 +1697,7 @@ BR2_PACKAGE_ROCKSDB_ARCH_SUPPORTS=y
 # BR2_PACKAGE_EXEMPI is not set
 # BR2_PACKAGE_EXIV2 is not set
 BR2_PACKAGE_FLUTTER_ENGINE_ARCH_SUPPORTS=y
-
-#
-# flutter-engine needs an OpenGL or OpenGLES backend
-#
+# BR2_PACKAGE_FLUTTER_ENGINE is not set
 # BR2_PACKAGE_FONTCONFIG is not set
 BR2_PACKAGE_FREETYPE=y
 # BR2_PACKAGE_GD is not set
@@ -1773,10 +1746,7 @@ BR2_PACKAGE_LIBDRM_HAS_ATOMIC=y
 # BR2_PACKAGE_LIBDRM_VMWGFX is not set
 # BR2_PACKAGE_LIBDRM_ETNAVIV is not set
 # BR2_PACKAGE_LIBDRM_INSTALL_TESTS is not set
-
-#
-# libepoxy needs an OpenGL and/or OpenGL EGL backend
-#
+# BR2_PACKAGE_LIBEPOXY is not set
 # BR2_PACKAGE_LIBEXIF is not set
 
 #
@@ -1793,19 +1763,14 @@ BR2_PACKAGE_LIBDRM_HAS_ATOMIC=y
 #
 # libglew depends on X.org and needs an OpenGL backend
 #
+# BR2_PACKAGE_LIBGLFW is not set
 
 #
 # libglu needs an OpenGL backend
 #
 # BR2_PACKAGE_LIBGTA is not set
-
-#
-# libgtk3 needs an OpenGL or an OpenGL-EGL backend
-#
-
-#
-# libgtk4 needs an OpenGL(ES) EGL backend
-#
+# BR2_PACKAGE_LIBGTK3 is not set
+# BR2_PACKAGE_LIBGTK4 is not set
 # BR2_PACKAGE_LIBJXL is not set
 # BR2_PACKAGE_LIBMEDIAART is not set
 # BR2_PACKAGE_LIBMNG is not set
@@ -1821,13 +1786,15 @@ BR2_PACKAGE_LIBDRM_HAS_ATOMIC=y
 # BR2_PACKAGE_LIBVIPS is not set
 BR2_PACKAGE_LIBVPL_ARCH_SUPPORTS=y
 # BR2_PACKAGE_LIBVPL is not set
-
-#
-# libwpe needs a toolchain w/ C++, dynamic library and an OpenEGL-capable backend
-#
+# BR2_PACKAGE_LIBWPE is not set
 # BR2_PACKAGE_MENU_CACHE is not set
 # BR2_PACKAGE_OPENCV3 is not set
 # BR2_PACKAGE_OPENCV4 is not set
+BR2_PACKAGE_HAS_LIBEGL=y
+BR2_PACKAGE_HAS_LIBGBM=y
+BR2_PACKAGE_LIBGBM_HAS_FEATURE_FORMAT_MODIFIER_PLANE_COUNT=y
+BR2_PACKAGE_LIBGBM_HAS_FEATURE_DMA_BUF=y
+BR2_PACKAGE_HAS_LIBGLES=y
 # BR2_PACKAGE_OPENJPEG is not set
 # BR2_PACKAGE_PANGO is not set
 # BR2_PACKAGE_PANGOMM is not set
@@ -1836,13 +1803,12 @@ BR2_PACKAGE_LIBVPL_ARCH_SUPPORTS=y
 # BR2_PACKAGE_POPPLER is not set
 # BR2_PACKAGE_STB is not set
 # BR2_PACKAGE_TIFF is not set
+BR2_PACKAGE_WAFFLE_SUPPORTS_WAYLAND=y
+# BR2_PACKAGE_WAFFLE is not set
 BR2_PACKAGE_WAYLAND=y
 BR2_PACKAGE_WAYLAND_PROTOCOLS=y
 BR2_PACKAGE_WAYLAND_UTILS=y
-
-#
-# waylandpp needs an OpenGL-EGL backend, a toolchain w/ gcc >= 4.9, host gcc >= 4.9, C++ support
-#
+# BR2_PACKAGE_WAYLANDPP is not set
 BR2_PACKAGE_WEBKITGTK_ARCH_SUPPORTS=y
 
 #
@@ -1854,15 +1820,9 @@ BR2_PACKAGE_WEBKITGTK_ARCH_SUPPORTS=y
 # wlroots needs udev, EGL and OpenGL ES support
 #
 # BR2_PACKAGE_WOFF2 is not set
-
-#
-# wpebackend-fdo needs a toolchain w/ C++, wchar, threads, dynamic library and EGL support
-#
+# BR2_PACKAGE_WPEBACKEND_FDO is not set
 BR2_PACKAGE_WPEWEBKIT_ARCH_SUPPORTS=y
-
-#
-# wpewebkit needs an OpenGL ES w/ EGL-capable Wayland backend
-#
+# BR2_PACKAGE_WPEWEBKIT is not set
 # BR2_PACKAGE_ZBAR is not set
 # BR2_PACKAGE_ZXING_CPP is not set
 
@@ -3074,7 +3034,7 @@ BR2_TARGET_ROOTFS_EXT2_2r1=y
 # BR2_TARGET_ROOTFS_EXT2_4 is not set
 BR2_TARGET_ROOTFS_EXT2_GEN=2
 BR2_TARGET_ROOTFS_EXT2_LABEL="rootfs"
-BR2_TARGET_ROOTFS_EXT2_SIZE="60M"
+BR2_TARGET_ROOTFS_EXT2_SIZE="100M"
 BR2_TARGET_ROOTFS_EXT2_INODES=0
 BR2_TARGET_ROOTFS_EXT2_INODE_SIZE=256
 BR2_TARGET_ROOTFS_EXT2_RESBLKS=5
