@@ -1,13 +1,5 @@
 #!/bin/bash
 
-build_uboot() {
-    make uboot-rebuild
-}
-
-build_linux() {
-    make linux-rebuild
-}
-
 build_clean() {
     rm -rf output
     rm -rf .config
@@ -45,16 +37,11 @@ run_x86_64() {
 }
 
 build_package() {
-    make ${1}-distclean
     make ${1}-rebuild
     make
 }
 
-if test "$1" = "uboot" ; then
-    build_uboot
-elif test "$1" = "linux" ; then
-    build_linux
-elif test "$1" = "clean" ; then
+if test "$1" = "clean" ; then
     build_clean
 elif test "$1" = "aarch64" ; then
     build_aarch64

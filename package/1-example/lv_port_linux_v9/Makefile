@@ -12,10 +12,10 @@ WARNINGS        := -Wall -Wshadow -Wundef -Wmissing-prototypes -Wno-discarded-qu
                    -Wsizeof-pointer-memaccess -Wno-format-nonliteral -Wno-cast-qual -Wunreachable-code -Wno-switch-default -Wreturn-type -Wmultichar -Wformat-security \
                    -Wno-ignored-qualifiers -Wno-error=pedantic -Wno-sign-compare -Wno-error=missing-prototypes -Wdouble-promotion -Wclobbered -Wdeprecated -Wempty-body \
                    -Wshift-negative-value -Wstack-usage=2048 -Wno-unused-value -std=gnu99
-CFLAGS          ?= -O3 -g0 -I$(LVGL_DIR)/ $(WARNINGS)
-LDFLAGS         ?= -lm
+override CFLAGS          += -O3 -g0 -I$(LVGL_DIR)/ -I$(LVGL_DIR)/.. $(WARNINGS)
+override LDFLAGS         += -lm
 
-BIN             = main
+BIN             = lvgl_demo
 BUILD_DIR       = ./build
 BUILD_OBJ_DIR   = $(BUILD_DIR)/obj
 BUILD_BIN_DIR   = $(BUILD_DIR)/bin
@@ -26,6 +26,10 @@ bindir          ?= $(prefix)/bin
 # Collect source files recursively
 CSRCS           := $(shell find src -type f -name '*.c')
 CXXSRCS         := $(shell find src -type f -name '*.cpp')
+
+# 获取 libdrm 的编译选项
+override CFLAGS += -I$(STAGING_DIR)/usr/include/libdrm
+override LDFLAGS += -L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/lib -ldrm
 
 # Include LVGL sources
 include $(LVGL_DIR)/lvgl/lvgl.mk
