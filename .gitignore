@@ -15,3 +15,8 @@
 
 .github
 .gitlab
+
+dl/br-flutter-pub-cache
+dl/flutter-engine
+dl/flutter-pi
+dl/flutter-sdk-bin

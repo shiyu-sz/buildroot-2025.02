@@ -6,12 +6,17 @@ build_clean() {
 }
 
 build_aarch64() {
-    make my_qemu_aarch64_virt_defconfig
+    cp qemu_aarch64_virt_defconfig .config
     make -j8 
 }
 
 build_x86_64() {
-    make my_qemu_x86_64_defconfig
+    cp qemu_x86_64_defconfig .config
+    make -j8 
+}
+
+build_flutter() {
+    cp flutter_qemu_x86_64_defconfig .config
     make -j8 
 }
 
@@ -36,6 +41,21 @@ run_x86_64() {
         -display gtk,gl=on
 }
 
+run_flutter() {
+    qemu-system-x86_64 -M pc -m 512M \
+        -kernel output/images/bzImage \
+        -drive file=output/images/rootfs.ext2,if=virtio,format=raw \
+        -append "rootwait root=/dev/vda console=tty1 console=ttyS0" \
+        -serial stdio -net nic,model=virtio -net user \
+        -vga virtio \
+        -device virtio-vga-gl \
+        -display gtk,gl=on \
+        -virtfs local,path=/home/sy,mount_tag=host0,security_model=mapped-xattr
+}
+
+# mkdir -p /mnt/shared
+# mount -t 9p -o trans=virtio,version=9p2000.L host0 /mnt/shared
+
 build_package() {
     make ${1}-rebuild
     make
@@ -51,6 +71,10 @@ elif test "$1" = "x86_64" ; then
     build_x86_64
 elif test "$1" = "run_x86_64" ; then
     run_x86_64
+elif test "$1" = "flutter" ; then
+    build_flutter
+elif test "$1" = "run_flutter" ; then
+    run_flutter
 else
     build_package $1
 fi
