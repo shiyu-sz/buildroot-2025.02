@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -gdf6749a1-dirty Configuration
+# Buildroot -g0d78eb26-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -437,7 +437,7 @@ BR2_LUAROCKS_MIRROR="http://rocks.moonscript.org"
 BR2_CPAN_MIRROR="https://cpan.metacpan.org"
 BR2_JLEVEL=0
 BR2_CCACHE=y
-BR2_CCACHE_DIR=".buildroot-ccache"
+BR2_CCACHE_DIR="$(TOPDIR)/.buildroot-ccache"
 BR2_CCACHE_INITIAL_SETUP=""
 BR2_CCACHE_USE_BASEDIR=y
 # BR2_ENABLE_DEBUG is not set
