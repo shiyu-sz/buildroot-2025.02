@@ -6,8 +6,11 @@ build_clean() {
 }
 
 build_aarch64() {
-    cp qemu_aarch64_virt_defconfig .config
+    # cp qemu_aarch64_virt_defconfig .config
+    cp qemu_aarch64_ebbr_defconfig .config
     make -j8 
+    # make CCACHE_OPTIONS="--max-size=20G" ccache-options
+    # make ccache-stats
 }
 
 build_x86_64() {
@@ -21,13 +24,33 @@ build_flutter() {
 }
 
 run_aarch64() {
-    # qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 -device virtio-blk-device,drive=hd0
-    qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 \
-        -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" \
-        -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 \
-        -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 \
-        -device virtio-blk-device,drive=hd0 -device virtio-gpu-device \
-        -device virtio-mouse-pci -device virtio-keyboard-pci -display sdl
+    # 原启动脚本
+    # qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 \
+    #     -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" \
+    #     -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 \
+    #     -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 -device virtio-blk-device,drive=hd0
+    # 用于测试图形输出的脚本
+    # qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -smp 1 \
+    #     -kernel output/images/Image -append "rootwait root=/dev/vda console=ttyAMA0" \
+    #     -netdev user,id=eth0 -device virtio-net-device,netdev=eth0 \
+    #     -drive file=output/images/rootfs.ext4,if=none,format=raw,id=hd0 \
+    #     -device virtio-blk-device,drive=hd0 -device virtio-gpu-device \
+    #     -device virtio-mouse-pci -device virtio-keyboard-pci -display sdl
+    # 测试ebbr，使用uboot引导
+      qemu-system-aarch64 \
+        -M virt,secure=on,acpi=off \
+        -bios output/images/flash.bin \
+        -cpu cortex-a53 \
+        -device virtio-blk-device,drive=hd0 \
+        -device virtio-net-device,netdev=eth0 \
+        -device virtio-rng-device,rng=rng0 \
+        -drive file=output/images/disk.img,if=none,format=raw,id=hd0 \
+        -m 2048 \
+        -netdev user,id=eth0 \
+        -nographic \
+        -object rng-random,filename=/dev/urandom,id=rng0 \
+        -rtc base=utc,clock=host \
+        -smp 2 # qemu_aarch64_ebbr_defconfig
 }
 
 run_x86_64() {
