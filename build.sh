@@ -8,19 +8,19 @@ build_clean() {
 build_aarch64() {
     # cp qemu_aarch64_virt_defconfig .config
     cp qemu_aarch64_ebbr_defconfig .config
-    make -j8 
+    make -j$(grep -c ^processor /proc/cpuinfo)
     # make CCACHE_OPTIONS="--max-size=20G" ccache-options
     # make ccache-stats
 }
 
 build_x86_64() {
     cp qemu_x86_64_defconfig .config
-    make -j8 
+    make -j$(grep -c ^processor /proc/cpuinfo)
 }
 
 build_flutter() {
     cp flutter_qemu_x86_64_defconfig .config
-    make -j8 
+    make -j$(grep -c ^processor /proc/cpuinfo)
 }
 
 run_aarch64() {
@@ -45,7 +45,7 @@ run_aarch64() {
         -device virtio-net-device,netdev=eth0 \
         -device virtio-rng-device,rng=rng0 \
         -drive file=output/images/disk.img,if=none,format=raw,id=hd0 \
-        -m 2048 \
+        -m 1024 \
         -netdev user,id=eth0 \
         -nographic \
         -object rng-random,filename=/dev/urandom,id=rng0 \

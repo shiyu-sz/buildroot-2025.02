@@ -32,3 +32,5 @@ CONFIG_RNG_OPTEE=y
 CONFIG_RTC_EMULATION=y
 CONFIG_SCMI_FIRMWARE=y
 CONFIG_TEE=y
+CONFIG_BOOTCOMMAND="load virtio 0:1 ${scriptaddr} /boot.scr; source ${scriptaddr}"
+CONFIG_BOOTDELAY=3
