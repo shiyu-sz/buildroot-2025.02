@@ -1,0 +1,27 @@
+software =
+{
+    version = "1.0";
+    hardware-compatibility = [ "qemu-aarch64" ];
+
+    images: (
+        {
+            filename = "rootfs.ext2";
+            device = "/dev/vda3";
+            install-if-selection = "copy_to_b";
+            type = "raw";
+        },
+        {
+            filename = "rootfs.ext2";
+            device = "/dev/vda2";
+            install-if-selection = "copy_to_a";
+            type = "raw";
+        }
+    );
+
+    scripts: (
+        {
+            filename = "post_install.sh";
+            type = "shellscript";
+        }
+    );
+}

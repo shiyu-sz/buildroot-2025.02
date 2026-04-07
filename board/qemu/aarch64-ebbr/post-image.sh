@@ -15,4 +15,15 @@ ${HOST_DIR}/bin/mkimage -A arm64 -O linux -T script -C none -a 0 -e 0 \
     -n "boot script" -d ${BOARD_DIR}/boot.cmd ${BINARIES_DIR}/boot.scr
 
 # 创建一个空的环境变量文件，大小为 256KB，放在 1MB 偏移处
-dd if=/dev/zero of=${BINARIES_DIR}/uboot-env.bin bs=1k count=256
+# dd if=/dev/zero of=${BINARIES_DIR}/uboot-env.bin bs=1k count=256
+
+# 自动打包swu文件
+cp ${BOARD_DIR}/sw-description ${BINARIES_DIR}
+cp ${BOARD_DIR}/post_install.sh ${BINARIES_DIR}
+cd ${BINARIES_DIR}
+
+FILES="sw-description rootfs.ext2 post_install.sh"
+
+for f in $FILES; do
+    echo $f
+done | cpio -ov -H crc > ${BINARIES_DIR}/my_update_v1.0.swu
