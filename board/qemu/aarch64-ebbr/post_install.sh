@@ -1,4 +1,10 @@
 #!/bin/sh
+
+CURRENT_SLOT=$(fw_printenv -n boot_slot)
+echo "boot_slot = $CURRENT_SLOT"
+
+exit 0
+
 # 获取当前 boot_slot 变量
 CURRENT_SLOT=$(fw_printenv -n boot_slot)
 

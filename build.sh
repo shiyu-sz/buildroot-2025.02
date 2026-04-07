@@ -46,7 +46,7 @@ run_aarch64() {
         -device virtio-rng-device,rng=rng0 \
         -drive file=output/images/disk.img,if=none,format=raw,id=hd0 \
         -m 1024 \
-        -netdev user,id=eth0 \
+        -netdev user,id=eth0,hostfwd=tcp::8080-:8080 \
         -nographic \
         -object rng-random,filename=/dev/urandom,id=rng0 \
         -rtc base=utc,clock=host \

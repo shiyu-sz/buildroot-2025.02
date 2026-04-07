@@ -1,27 +1,70 @@
-software =
 {
-    version = "1.0";
-    hardware-compatibility = [ "qemu-aarch64" ];
-
-    images: (
-        {
-            filename = "rootfs.ext2";
-            device = "/dev/vda3";
-            install-if-selection = "copy_to_b";
-            type = "raw";
-        },
-        {
-            filename = "rootfs.ext2";
-            device = "/dev/vda2";
-            install-if-selection = "copy_to_a";
-            type = "raw";
+    "software": {
+        "version": "1.0",
+        "hardware-compatibility": [ "qemu-aarch64" ],
+        "stable": {
+            "copy_to_b": {
+                "images": [
+                    {
+                        "filename": "rootfs.ext2",
+                        "device": "/dev/vda3",
+                        "type": "raw",
+                        "installed-directly": true
+                    }
+                ],
+                "bootenv": [
+                    {
+                        "name": "boot_slot",
+                        "value": "B"
+                    },
+                    {
+                        "name": "upgrade_available",
+                        "value": "1"
+                    },
+                    {
+                        "name": "bootcount",
+                        "value": "0"
+                    }
+                ],
+                "scripts": [
+                    {
+                        "filename": "post_install.sh",
+                        "type": "shellscript",
+                        "run": "postinst"
+                    }
+                ]
+            },
+            "copy_to_a": {
+                "images": [
+                    {
+                        "filename": "rootfs.ext2",
+                        "device": "/dev/vda2",
+                        "type": "raw",
+                        "installed-directly": true
+                    }
+                ],
+                "bootenv": [
+                    {
+                        "name": "boot_slot",
+                        "value": "A"
+                    },
+                    {
+                        "name": "upgrade_available",
+                        "value": "1"
+                    },
+                    {
+                        "name": "bootcount",
+                        "value": "0"
+                    }
+                ],
+                "scripts": [
+                    {
+                        "filename": "post_install.sh",
+                        "type": "shellscript",
+                        "run": "postinst"
+                    }
+                ]
+            }
         }
-    );
-
-    scripts: (
-        {
-            filename = "post_install.sh";
-            type = "shellscript";
-        }
-    );
+    }
 }

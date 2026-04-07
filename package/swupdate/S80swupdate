@@ -4,6 +4,8 @@ DAEMON="swupdate"
 DAEMON_WRAPPER="/usr/lib/swupdate/swupdate.sh"
 PIDFILE="/var/run/$DAEMON.pid"
 
+# /usr/bin/swupdate -v -e stable,copy_to_b -w "-r /var/www/swupdate -p 8080"
+
 start() {
 	printf 'Starting %s: ' "$DAEMON"
 	start-stop-daemon -S -q -b -m -p "$PIDFILE" -x $DAEMON_WRAPPER

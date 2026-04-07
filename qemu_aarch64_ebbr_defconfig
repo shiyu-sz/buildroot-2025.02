@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Buildroot -g4e94f8b3-dirty Configuration
+# Buildroot -gd3de44ca-dirty Configuration
 #
 BR2_HAVE_DOT_CONFIG=y
 BR2_HOST_GCC_AT_LEAST_4_9=y
@@ -1908,7 +1908,7 @@ BR2_PACKAGE_ROCKSDB_ARCH_SUPPORTS=y
 #
 # Filesystem
 #
-# BR2_PACKAGE_LIBCONFIG is not set
+BR2_PACKAGE_LIBCONFIG=y
 # BR2_PACKAGE_LIBCONFUSE is not set
 # BR2_PACKAGE_LIBFUSE is not set
 # BR2_PACKAGE_LIBFUSE3 is not set
